@@ -1,11 +1,19 @@
 const express = require('express')
 const app = express()
-const userModel = require('./Models/user')
+const userModel = require('./Models/user.js')
 const conection = require('./Config/db.js')
 var cors = require('cors');
 app.use(cors())
 
 app.get('/users', (req,res) =>{
+    userModel.find({}).then((users)=>{
+        const apiKey = process.env
+        console.log(apiKey)
+        res.send(users)
+    })
+})
+
+app.get('/', (req,res) =>{
     userModel.find({}).then((users)=>{
         const apiKey = process.env
         console.log(apiKey)
