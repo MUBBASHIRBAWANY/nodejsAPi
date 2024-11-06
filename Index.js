@@ -68,7 +68,7 @@ app.delete('/deleteuser', async (req,res)=>{
         _id : id
     })
 
-    res.send("delete")
+    res.send("deleted")
 })
 
 app.listen(3000)
